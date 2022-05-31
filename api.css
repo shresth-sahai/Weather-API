@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins";
+    color: blue;
+    background-color: black;
+
+}
+.container{
+    width: 26%;
+}
+.card{
+    border-radius: 50px;
+    background-color: black;
+    box-shadow: 5 px 5px 10 px ,5 px -5px -10 px;
+    padding: 3%;
+    text-align: center;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 i class="fa fa-marker"> </i> <span id="location"> </span></h2>
+            <h6>weather</h6>
+            <h4> <span id="temp"></span> <sup>o</sup>C</h4>
+
+            <img src="" id="icon">
+            <button onclick="window.location.reload()" class="refresh"> <i class="fa fa-refresh"></i></button>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+<script type="text/javascript"> 
+link="https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";
+var request = new XMLHttpRequest();
+request.open('GET',link,true);
+request.onload=function()
+{
+    var obj=JSON.parse(this.response);
+    console.log(obj);
+    document.getElementById('weather').innerHTML=obj.weather[0].description;
+       document.getElementById('location').innerHTML = obj.name;
+           document.getElementById('temp').innerHTML = Math.round(obj.main.temp-273.5);
+
+           document.getElementById('icon').src = "openweatherapi"+ "obj.weather[0].icon"+ ".png";
+
+}
+if(request.status>=200 && request.status<400){
+    var temp=obj.main.temp;
+}
+    else {
+        console.log("Not Available");
+    }
+
+request.send();
+
+
+</script>
+<footer>
+    Made by Shresth
+</footer>
+</html>
+
